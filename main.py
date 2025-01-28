@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import sys
 import config as cfg
 import buttons as bt
 from aiogram import Bot, Dispatcher, F, Router, html
