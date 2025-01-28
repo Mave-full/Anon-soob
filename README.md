@@ -13,9 +13,7 @@ pip install -r requirements.txt
 
 В файле config.py вам нужно указать токен вашего бота и ваш идентификатор:
 
-![image](https://github.com/user-attachments/assets/189a6f56-74e2-4ce9-b4e6-1aaf25c62d1b)
-
-
+![image](https://github.com/user-attachments/assets/fe841100-d0a8-4b25-8611-5742beef8a70)
 
 После этого вы можете запустить бота и начать использовать его!
 
