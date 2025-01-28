@@ -37,10 +37,11 @@ async def anon_callback(call: CallbackQuery, state: FSMContext) -> None:
     await call.message.answer("Напишите сообщение что бы отправить его администраторам канала MAVER.", reply_markup=bt.canc_kb())
 
 @router.message(Form.text)
-async def process_text(message: Message, state: FSMContext) -> None:
+async def process_text(message: Message, state: FSMContext, bot: Bot) -> None:
     await state.clear()
     await message.answer("Сообщение отправленно, вы возвращенны в меню \nнапиши /anon или же нажми на кнопку ниже 👇.", reply_markup=bt.anon_kb())
-    await message.answer(id=cfg.id, text=f"У вас новое анонимное сообщение!\n\n<pre>{message.text}</pre>\n\nНе забудьте ответить на него!")
+    for id in cfg.admins:
+        await bot.send_message(id, text=f"У вас новое анонимное сообщение!\n\n<pre>{message.text}</pre>\n\nНе забудьте ответить на него!")
 
 async def main() -> None:
     bot = Bot(cfg.TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
